@@ -1,4 +1,4 @@
-# Copyright (c) 2022-2025, The Isaac Lab Project Developers.
+# Copyright (c) 2022-2025, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
 # All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -239,6 +239,17 @@ class RenderCfg:
 
     Set variable: /rtx/ambientOcclusion/enabled
     """
+
+    carb_settings: dict | None = None
+    """Provides a general dictionary for users to supply all carb rendering settings with native names.
+        - Name strings can be formatted like a carb setting, .kit file setting, or python variable.
+        - For instance, a key value pair can be
+            /rtx/translucency/enabled: False # carb
+             rtx.translucency.enabled: False # .kit
+             rtx_translucency_enabled: False # python"""
+
+    rendering_mode: Literal["performance", "balanced", "quality", "xr"] | None = None
+    """Sets the rendering mode. Behaves the same as the CLI arg '--rendering_mode'"""
 
 
 @configclass
